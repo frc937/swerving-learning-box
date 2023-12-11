@@ -32,13 +32,13 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    File directory = new File(Filesystem.getDeployDirectory(), "swerve");
+    /*File directory = new File(Filesystem.getDeployDirectory(), "swerve");
     System.out.println(new File(Filesystem.getDeployDirectory() + "/swerve/"));
     System.out.println(new File(directory, "swervedrive.json").exists());
     System.out.println(new File(directory, "controllerproperties.json").exists());
     System.out.println(new File(directory, "modules").exists() && new File(directory, "modules").isDirectory());
     System.out.println(new File(directory, "modules/pidfproperties.json").exists());
-    System.out.println(new File(directory, "modules/physicalproperties.json").exists());
+    System.out.println(new File(directory, "modules/physicalproperties.json").exists());*/
   }
 
   /**
