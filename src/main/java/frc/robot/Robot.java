@@ -4,6 +4,9 @@
 
 package frc.robot;
 
+import java.io.File;
+
+import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -28,6 +31,14 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+
+    File directory = new File(Filesystem.getDeployDirectory(), "swerve");
+    System.out.println(new File(Filesystem.getDeployDirectory() + "/swerve/"));
+    System.out.println(new File(directory, "swervedrive.json").exists());
+    System.out.println(new File(directory, "controllerproperties.json").exists());
+    System.out.println(new File(directory, "modules").exists() && new File(directory, "modules").isDirectory());
+    System.out.println(new File(directory, "modules/pidfproperties.json").exists());
+    System.out.println(new File(directory, "modules/physicalproperties.json").exists());
   }
 
   /**
