@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import java.io.File;
 import java.io.IOException;
 
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -24,6 +25,16 @@ public class Drive extends SubsystemBase {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+  }
+
+  public void driveRobotOriented(double x, double y, double z) {
+    Translation2d translation = new Translation2d(x, y);
+
+    drive.drive(translation, z, false, true, new Translation2d());
+  }
+
+  public void stop() {
+    drive.drive(new Translation2d(), 0, false, true, new Translation2d());
   }
 
   @Override
