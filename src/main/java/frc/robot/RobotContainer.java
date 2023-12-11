@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -25,6 +26,14 @@ public class RobotContainer {
 
   private final Drive drive = new Drive();
 
+  /*
+   * ************
+   * * COMMANDS *
+   * ************
+   */
+
+  private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
+
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public static CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
@@ -33,6 +42,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+
+    drive.setDefaultCommand(driveRobotOriented);
   }
 
   /**
