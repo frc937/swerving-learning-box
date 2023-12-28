@@ -1,0 +1,4 @@
+[submodule "YAGSL.git"]
+	path = YAGSL
+	url = https://github.com/frc937/YAGSL.git
+	branch = thrifty
