@@ -28,13 +28,24 @@ public class Drive extends SubsystemBase {
   }
 
   public void driveRobotOriented(double x, double y, double z) {
+    x = x * getMaximumSpeed();
+    y = y * getMaximumSpeed();
+    z = z * getMaximumAngularSpeed();
     Translation2d translation = new Translation2d(x, y);
 
-    drive.drive(translation, z, false, true, new Translation2d());
+    drive.drive(translation, z, false, false);
   }
 
   public void stop() {
-    drive.drive(new Translation2d(), 0, false, true, new Translation2d());
+    drive.drive(new Translation2d(), 0, false, false, new Translation2d());
+  }
+
+  private double getMaximumSpeed() {
+    return 1; // TODO: move this to constants
+  }
+
+  private double getMaximumAngularSpeed() {
+    return Math.PI / 2; // TODO: move this to constants
   }
 
   @Override
