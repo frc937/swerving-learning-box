@@ -10,6 +10,7 @@ import java.io.IOException;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Filesystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import swervelib.SwerveDrive;
 import swervelib.parser.SwerveParser;
@@ -51,5 +52,9 @@ public class Drive extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("FL Encoder", drive.getModules()[0].getAbsolutePosition());
+    SmartDashboard.putNumber("FR Encoder", drive.getModules()[1].getAbsolutePosition());
+    SmartDashboard.putNumber("BL Encoder", drive.getModules()[2].getAbsolutePosition());
+    SmartDashboard.putNumber("BR Encoder", drive.getModules()[3].getAbsolutePosition());
   }
 }
