@@ -10,6 +10,7 @@ import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -76,7 +77,8 @@ public class RobotContainer {
   }
 
   public static double scaleAxis(double axis) {
-    return Math.signum(axis) * Math.pow(axis, 2);
+    double deadbanded = MathUtil.applyDeadband(axis, 0.1);
+    return Math.signum(axis) * Math.pow(deadbanded, 2);
   }
 
   public static double getControllerLeftXAxis() {
