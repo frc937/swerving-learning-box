@@ -78,7 +78,7 @@ public class RobotContainer {
 
   public static double scaleAxis(double axis) {
     double deadbanded = MathUtil.applyDeadband(axis, 0.1);
-    return Math.pow(deadbanded, 2);
+    return Math.pow(deadbanded, 3);
   }
 
   public static double getControllerLeftXAxis() {
