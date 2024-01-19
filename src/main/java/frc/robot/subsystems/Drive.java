@@ -26,6 +26,8 @@ public class Drive extends SubsystemBase {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+
+    drive.setHeadingCorrection(true);
   }
 
   public void driveRobotOriented(double x, double y, double z) {
