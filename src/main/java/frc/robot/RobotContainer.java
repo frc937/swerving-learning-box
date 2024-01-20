@@ -27,7 +27,7 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   private final Drive drive = new Drive();
-  private final EnterXMode enterXMode = new EnterXMode();
+  private final EnterXMode enterXMode = new EnterXMode(drive);
 
   /*
    * ************
