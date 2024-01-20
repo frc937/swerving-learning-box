@@ -26,6 +26,7 @@ public class Drive extends SubsystemBase {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+    /* setting the motors to brake mode */
     drive.setMotorIdleMode(true);
   }
 
