@@ -85,7 +85,7 @@ public class RobotContainer {
   }
 
   public static double getControllerLeftXAxis() {
-    return m_driverController.getLeftX();
+    return m_driverController.getLeftX() * -1;
   }
 
   public static double getScaledControllerLeftXAxis() {
@@ -101,7 +101,7 @@ public class RobotContainer {
   }
 
   public static double getControllerRightXAxis() {
-    return m_driverController.getRightX();
+    return m_driverController.getRightX() * -1;
   }
 
   public static double getScaledControllerRightXAxis() {
