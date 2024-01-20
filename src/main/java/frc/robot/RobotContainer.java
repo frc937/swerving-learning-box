@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drive;
@@ -34,6 +35,7 @@ public class RobotContainer {
    */
 
   private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
+  private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented(drive);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public static CommandXboxController m_driverController =
@@ -64,6 +66,7 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    m_driverController.leftStick().toggleOnTrue(driveFieldOriented);
   }
 
   /**
