@@ -9,10 +9,12 @@ import frc.robot.subsystems.Drive;
 
 public class EnterXMode extends Command {
 
-  Drive drive = new Drive();
+  private Drive drive;
 
   /** Creates a new EnterXMode. */
-  public EnterXMode() {
+  public EnterXMode(Drive drive) {
+    this.drive = drive;
+    addRequirements(drive);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
