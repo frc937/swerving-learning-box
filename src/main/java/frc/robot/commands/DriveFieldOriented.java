@@ -23,7 +23,7 @@ public class DriveFieldOriented extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drive.driveFieldOriented(RobotContainer.getScaledControllerLeftYAxis(), RobotContainer.getScaledControllerLeftXAxis(), RobotContainer.getScaledControllerRightXAxis());
+    drive.driveFieldOriented(RobotContainer.getScaledControllerLeftYAxis(), RobotContainer.getScaledControllerLeftXAxis(), RobotContainer.getControllerRightXAxis());
   }
 
   // Called once the command ends or is interrupted.
