@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.ExampleCommand;
@@ -35,6 +36,7 @@ public class RobotContainer {
    */
 
   private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
+  private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented(drive);
   private final EnterXMode enterXMode = new EnterXMode(drive);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -67,6 +69,9 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+
+    m_driverController.leftStick().toggleOnTrue(driveFieldOriented);
+
     m_driverController.x().onTrue(enterXMode);
   }
 
@@ -86,7 +91,7 @@ public class RobotContainer {
   }
 
   public static double getControllerLeftXAxis() {
-    return m_driverController.getLeftX();
+    return m_driverController.getLeftX() * -1;
   }
 
   public static double getScaledControllerLeftXAxis() {
@@ -94,7 +99,7 @@ public class RobotContainer {
   }
 
   public static double getControllerLeftYAxis() {
-    return m_driverController.getLeftY();
+    return m_driverController.getLeftY() * -1;
   }
 
   public static double getScaledControllerLeftYAxis() {
@@ -102,7 +107,7 @@ public class RobotContainer {
   }
 
   public static double getControllerRightXAxis() {
-    return m_driverController.getRightX();
+    return m_driverController.getRightX() * -1;
   }
 
   public static double getScaledControllerRightXAxis() {
@@ -110,7 +115,7 @@ public class RobotContainer {
   }
 
   public static double getControllerRightYAxis() {
-    return m_driverController.getRightY();
+    return m_driverController.getRightY() * -1;
   }
 
   public static double getScaledControllerRightYAxis() {
