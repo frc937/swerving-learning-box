@@ -27,7 +27,6 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   private final Drive drive = new Drive();
-  private final EnterXMode enterXMode = new EnterXMode(drive);
 
   /*
    * ************
@@ -36,6 +35,7 @@ public class RobotContainer {
    */
 
   private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
+  private final EnterXMode enterXMode = new EnterXMode(drive);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public static CommandXboxController m_driverController =
