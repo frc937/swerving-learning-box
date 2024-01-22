@@ -52,6 +52,10 @@ public class Drive extends SubsystemBase {
     drive.drive(new Translation2d(), 0, false, false, new Translation2d());
   }
 
+  public void enterXMode() {
+    drive.lockPose();
+  }
+
   private double getMaximumSpeed() {
     return 1; // TODO: move this to constants
   }

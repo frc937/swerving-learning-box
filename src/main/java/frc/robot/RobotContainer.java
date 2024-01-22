@@ -8,6 +8,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
+import frc.robot.commands.EnterXMode;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -36,6 +37,7 @@ public class RobotContainer {
 
   private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
   private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented(drive);
+  private final EnterXMode enterXMode = new EnterXMode(drive);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public static CommandXboxController m_driverController =
@@ -62,11 +64,15 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));
+    
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+
     m_driverController.leftStick().toggleOnTrue(driveFieldOriented);
+
+    m_driverController.x().onTrue(enterXMode);
   }
 
   /**
